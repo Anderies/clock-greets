@@ -1,6 +1,7 @@
 # ClockGreets
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+
 ![Image of Project](https://raw.githubusercontent.com/Anderies/clock-greets/master/src/assets/realtime.gif)
 
 ## Make it your Project 
