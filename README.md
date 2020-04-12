@@ -1,11 +1,12 @@
 # ClockGreets
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+![Image of Project](https://octodex.github.com/images/yaktocat.png)
 
-# Make it your Project 
-ng new clock-greets
-open it and do npm install 
-and run it with ng s -o
+## Make it your Project 
+- ng new clock-greets
+- open it and do npm install 
+- and run it with ng s -o
 
 ## Development server
 
