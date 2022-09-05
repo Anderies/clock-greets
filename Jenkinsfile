@@ -8,18 +8,20 @@ pipeline {
     }
         stages {
             stage('Setup tools') {
+                // agent {
+                // label "default"
+                // }
                 steps {
                     echo '\033[34m- - -Config Pipeline- - -\033[0m'
-                    container('node') {
-                    sh 'ng build'
+                    container('docker') {
+                    sh 'node build'
                     }
                 }
             }
-            stage('create a Python virtual environment') {
-                steps {
-                }
-            }
             stage('Build') {
+                // agent {
+                // label "python"
+                // }
                 steps {
                     echo '\033[34mBuild docker image\033[0m'
                     container('docker') {
@@ -29,8 +31,10 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    }
+                    echo 'Testing.....'
+                    echo '\033[34mHello\033[0m \033[33mcolorful\033[0m \033[35mtesting!\033[0m'
                 }
+            }
             stage('Deploy') {
                 steps {
                     echo 'Deploying....'
