@@ -16,6 +16,7 @@ pipeline {
                     sh '''
                         apt-get update -y && apt-get install curl -y
                         curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
+                        node --version
                     '''
                 }
             }
