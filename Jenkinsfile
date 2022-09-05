@@ -13,9 +13,10 @@ pipeline {
                 // }
                 steps {
                     echo '\033[34m- - -Config Pipeline- - -\033[0m'
-                    container('node') {
-                    sh 'node build'
-                    }
+                    sh '''
+                        apt-get update -y && apt-get install curl -y
+                        curl -fsSL https://fnm.vercel.app/install | bash
+                    '''
                 }
             }
             stage('Build') {
