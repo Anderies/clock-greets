@@ -15,7 +15,7 @@ pipeline {
                     echo '\033[34m- - -Config Pipeline- - -\033[0m'
                     sh '''
                         apt-get update -y && apt-get install curl -y
-                        curl -fsSL https://fnm.vercel.app/install | bash
+                        curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
                     '''
                 }
             }
