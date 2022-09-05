@@ -19,7 +19,7 @@ pipeline {
                 steps {
                 }
             }
-            stage('Build') {.
+            stage('Build') {
                 steps {
                     echo '\033[34mBuild docker image\033[0m'
                     container('docker') {
