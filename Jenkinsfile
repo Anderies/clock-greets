@@ -13,7 +13,7 @@ pipeline {
                 // }
                 steps {
                     echo '\033[34m- - -Config Pipeline- - -\033[0m'
-                    container('docker') {
+                    container('node') {
                     sh 'node build'
                     }
                 }
