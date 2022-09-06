@@ -25,7 +25,7 @@ pipeline {
                 steps {
                     echo '\033[34m- - - Build App - - -\033[0m'
                     sh '''
-                    sudo npm i -g @angular/cli
+                    npm install
                     ng build
                     '''
                     container('docker') {
