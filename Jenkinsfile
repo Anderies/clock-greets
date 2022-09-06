@@ -5,6 +5,7 @@ pipeline {
     }
     options {
         ansiColor('xterm')
+        skipDefaultCheckout true
     }
         stages {
             stage('Setup tools') {
