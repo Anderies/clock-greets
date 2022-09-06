@@ -21,6 +21,7 @@ pipeline {
                         npm install
                         npm fund
                         npm audit fix --force
+                        npm install -g @angular/cli@latest
                     '''
                 }
             }
