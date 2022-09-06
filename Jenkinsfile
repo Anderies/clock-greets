@@ -17,7 +17,10 @@ pipeline {
                     sh '''
                         node --version
                         export NODE_OPTIONS=--max_old_space_size=400
+                        echo $NODE_OPTIONS
                         npm install
+                        npm fund
+                        npm audit fix --force
                     '''
                 }
             }
