@@ -16,6 +16,7 @@ pipeline {
                     echo '\033[34m- - -Config Pipeline- - -\033[0m'
                     sh '''
                         node --version
+                        export NODE_OPTIONS=--max_old_space_size=400
                         npm install
                     '''
                 }
