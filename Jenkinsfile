@@ -15,6 +15,7 @@ pipeline {
                     echo '\033[34m- - -Config Pipeline- - -\033[0m'
                     sh '''
                         node --version
+                        npm install
                     '''
                 }
             }
@@ -25,7 +26,6 @@ pipeline {
                 steps {
                     echo '\033[34m- - - Build App - - -\033[0m'
                     sh '''
-                    npm install
                     ng build
                     '''
                     container('docker') {
