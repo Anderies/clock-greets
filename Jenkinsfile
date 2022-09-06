@@ -19,8 +19,8 @@ pipeline {
                         export NODE_OPTIONS=--max_old_space_size=400
                         echo $NODE_OPTIONS
                         npm install
-                        npm fund
-                        npm audit fix --force
+                        # npm fund
+                        # npm audit fix --force
                         npm install -g @angular/cli@latest
                     '''
                 }
