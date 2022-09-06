@@ -23,7 +23,10 @@ pipeline {
                 // label "python"
                 // }
                 steps {
-                    echo '\033[34mBuild docker image\033[0m'
+                    echo '\033[34m- - - Build App - - -\033[0m'
+                    sh '''
+                    ng build
+                    '''
                     container('docker') {
                     sh 'docker version'
                     }
