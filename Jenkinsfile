@@ -25,7 +25,7 @@ pipeline {
                 steps {
                     echo '\033[34m- - - Build App - - -\033[0m'
                     sh '''
-                    npm link @angular/cli
+                    npm i -g @angular/cli
                     ng build
                     '''
                     container('docker') {
