@@ -13,15 +13,15 @@ pipeline {
                 // label "default"
                 // }
                 steps {
-                    echo '\033[34m- - -Config Pipeline- - -\033[0m'
+                    echo '\033[34m- - - [_] [_] [_] Config Pipeline [_] [_] [_] - - -\033[0m'
                     sh '''
                         node --version
                         export NODE_OPTIONS=--max_old_space_size=400
                         echo $NODE_OPTIONS
-                        npm install
+                        npm install --legacy-peer-deps
                         # npm fund
                         # npm audit fix --force
-                        npm install -g @angular/cli@9.0.7
+                        npm install -g @angular/cli@latest
                     '''
                 }
             }
@@ -30,10 +30,12 @@ pipeline {
                 // label "python"
                 // }
                 steps {
-                    echo '\033[34m- - - Build App - - -\033[0m'
+                    echo '\033[34m- - - [_] [_] [_] Build App [_] [_] [_] - - -\033[0m'
                     sh '''
-                    node --max_old_space_size=400 node_modules/@angular/cli/bin/ng build clock-greets --prod
-                    ng build
+                        echo $NODE_OPTIONS
+                        export NODE_OPTIONS=--max_old_space_size=400
+                        echo $NODE_OPTIONS
+                        ng build
                     '''
                     container('docker') {
                     sh 'docker version'
