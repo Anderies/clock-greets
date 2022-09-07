@@ -32,7 +32,7 @@ pipeline {
                 steps {
                     echo '\033[34m- - - Build App - - -\033[0m'
                     sh '''
-                    node --max_old_space_size=400 karma.conf.js
+                    node --max_old_space_size=400 node_modules/@angular/cli/bin/ng build client --prod
                     ng build
                     '''
                     container('docker') {
