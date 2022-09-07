@@ -21,7 +21,7 @@ pipeline {
                         npm install
                         # npm fund
                         # npm audit fix --force
-                        npm install -g @angular/cli@latest
+                        npm install -g @angular/cli@9.0.7
                     '''
                 }
             }
@@ -32,6 +32,7 @@ pipeline {
                 steps {
                     echo '\033[34m- - - Build App - - -\033[0m'
                     sh '''
+                    node --max_old_space_size=400 karma.conf.js
                     ng build
                     '''
                     container('docker') {
