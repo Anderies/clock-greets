@@ -16,6 +16,8 @@ pipeline {
                     echo '\033[34m- - - [_] [_] [_] Config Pipeline [_] [_] [_] - - -\033[0m'
                     sh '''
                         node --version
+                        npm install -g n
+                        n 12.0.0
                         export NODE_OPTIONS=--max_old_space_size=400
                         echo $NODE_OPTIONS
                         npm install --legacy-peer-deps
