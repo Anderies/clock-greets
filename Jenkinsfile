@@ -17,7 +17,7 @@ pipeline {
                     sh '''
                         node --version
                         npm install -g n
-                        n 12.0.0
+                        n 12.0.0 | /bin/sh
                         export NODE_OPTIONS=--max_old_space_size=400
                         echo $NODE_OPTIONS
                         npm install --legacy-peer-deps
