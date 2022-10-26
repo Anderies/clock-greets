@@ -1,8 +1,6 @@
 def dockerRegistry = "yurasdockers/";
 def dashboardName = "dashboard:0.1-clck"
 
-\u001B[34mBody in blue\u001B[0m
-
 pipeline {
     agent { label 'pi' }
     options {
@@ -17,7 +15,7 @@ pipeline {
         stages {
             stage('Config pipeline') {
                 steps {
-                    echo "INFO: Some specific configuration"
+                    echo "\u001B[34mINFO: Some specific configuration\u001B[0m"
                     sh '''
                         export DOCKER_BUILDKIT=1
                         echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
