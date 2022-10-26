@@ -20,9 +20,9 @@ pipeline {
             stage('Test') {
                 steps {
                     echo "INFO: Testing start"
-                    sh '''
-                        docker build --target test-runner -t tests/test-runner .
-                       '''
+                    // sh '''
+                    //     docker build --target test-runner -t tests/test-runner .
+                    //    '''
                 }
             }
             stage('Build') {
