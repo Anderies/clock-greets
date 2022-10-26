@@ -39,8 +39,8 @@ pipeline {
                 steps {
                     echo "\u001B[31mINFO: Building start\u001B[0m"
                     sh '''
-                        docker build -t ${dockerRegistry}/${dashboardName}:${dashboardTag} .
-                        docker push ${dockerRegistry}/${dashboardName}:${dashboardTag}
+                        docker build -t ${dashboard} .
+                        docker push ${dashboard}
                     '''
                 }
             }
