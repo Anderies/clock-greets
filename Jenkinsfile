@@ -1,5 +1,6 @@
-def dockerRegistry = "yurasdockers/";
-def dashboardName = "dashboard:0.1-clck"
+def dockerRegistry = "yurasdockers";
+def dashboardName = "dashboard";
+def dashboardTag = "0.1-clck"
 
 pipeline {
     agent { label 'pi' }
@@ -37,8 +38,8 @@ pipeline {
                 steps {
                     echo "\u001B[31mINFO: Building start\u001B[0m"
                     sh '''
-                        docker build -t yurasdockers/dashboard:0.1-clck .
-                        docker push yurasdockers/dashboard:0.1-clck
+                        docker build -t ${dockerRegistry}/${dashboardName}:${dashboardTag} .
+                        docker push ${dockerRegistry}/${dashboardName}:${dashboardTag}
                     '''
                 }
             }
