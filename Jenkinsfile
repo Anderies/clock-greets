@@ -12,7 +12,6 @@ pipeline {
     }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerCred')
-        dashboard = {${dockerRegistry}/${dashboardName}:${dashboardTag}}
         def dockerRegistry = "yurasdockers";
         def dashboardName = "dashboard";
         def dashboardTag = "0.1-clck"
@@ -39,8 +38,8 @@ pipeline {
                 steps {
                     echo "\u001B[31mINFO: Building start\u001B[0m"
                     sh '''
-                        docker build -t ${dashboard} .
-                        docker push ${dashboard}
+                        docker build -t ${dockerRegistry}/${dashboardName}:${dashboardTag} .
+                        docker push ${dockerRegistry}/${dashboardName}:${dashboardTag}
                     '''
                 }
             }
