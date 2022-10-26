@@ -1,3 +1,7 @@
+def dockerRegistry = "yurasdockers/";
+def dashboardName = "dashboard:0.1-clck"
+
+\u001B[34mBody in blue\u001B[0m
 
 pipeline {
     agent { label 'pi' }
