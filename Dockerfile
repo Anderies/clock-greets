@@ -11,5 +11,5 @@ FROM nginx:1.17.1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/clock-greets /usr/share/nginx/html
 
-FROM build AS test-runner
-RUN ng test
+# FROM build AS test-runner
+# RUN ng test
