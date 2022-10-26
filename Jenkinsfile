@@ -9,6 +9,11 @@ pipeline {
         // skipDefaultCheckout true
     }
         stages {
+            stage('Test') {
+                steps {
+                    sh 'ng test'
+                }
+            }
             stage('Build') {
                 steps {
                     echo "INFO: Building start"
@@ -16,11 +21,6 @@ pipeline {
                         export DOCKER_BUILDKIT=1
                         docker build -t yurasdockers/clock:0.1 .
                     '''
-                }
-            }
-            stage('Test') {
-                steps {
-                    echo 'Testing.....'
                 }
             }
             stage('Deploy') {
