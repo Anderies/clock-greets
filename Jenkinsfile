@@ -32,8 +32,8 @@ pipeline {
                 steps {
                     echo "INFO: Building start"
                     sh '''
-                        docker build -t yurasdockers/dashboard:0.1(clck) .
-                        docker push yurasdockers/dashboard:0.1(clck)
+                        docker build -t yurasdockers/dashboard:0.1-clck .
+                        docker push yurasdockers/dashboard:0.1-clck
                     '''
                 }
             }
