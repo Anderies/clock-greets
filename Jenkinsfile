@@ -7,12 +7,16 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10'))
         // skipDefaultCheckout true
     }
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerCred')
+    }
         stages {
             stage('Config pipeline') {
                 steps {
                     echo "INFO: Some specific configuration"
                     sh '''
                         export DOCKER_BUILDKIT=1
+                        echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                        '''
                 }
             }
@@ -29,6 +33,7 @@ pipeline {
                     echo "INFO: Building start"
                     sh '''
                         docker build -t yurasdockers/dashboard:0.1(clck) .
+                        docker push yurasdockers/dashboard:0.1(clck)
                     '''
                 }
             }
