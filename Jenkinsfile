@@ -46,7 +46,7 @@ pipeline {
         post {
         // Clean after build
         always {
-            sh 'docker logout'
+            // sh 'docker logout'
             cleanWs(cleanWhenNotBuilt: true,
                     deleteDirs: true,
                     disableDeferredWipeout: true,
