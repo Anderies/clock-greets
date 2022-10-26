@@ -1,24 +1,16 @@
 
 pipeline {
     agent {
-    label "pi"
+        label "pi"
     }
     options {
         ansiColor('xterm')
         // skipDefaultCheckout true
     }
         stages {
-            stage('Setup tools') {
-                steps {
-                    echo '\033[34m- - - [_] [_] [_] Config Pipeline [_] [_] [_] - - -\033[0m'
-                    sh '''
-                        echo "config"
-                    '''
-                }
-            }
             stage('Build') {
                 steps {
-                    echo '\033[34m- - - [_] [_] [_] Build App [_] [_] [_] - - -\033[0m'
+                    echo "INFO: Building start"
                     sh '''
                         ls -alt
                     '''
