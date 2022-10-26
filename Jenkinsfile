@@ -12,7 +12,7 @@ pipeline {
     }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerCred')
-        dashboard = ${dockerRegistry}/${dashboardName}:${dashboardTag}
+        dashboard = '${dockerRegistry}/${dashboardName}:${dashboardTag}'
         def dockerRegistry = "yurasdockers";
         def dashboardName = "dashboard";
         def dashboardTag = "0.1-clck"
