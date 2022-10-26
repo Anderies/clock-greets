@@ -15,7 +15,7 @@ pipeline {
         stages {
             stage('Config pipeline') {
                 steps {
-                    echo "\u001B[34mINFO: Some specific configuration\u001B[0m"
+                    echo "\u001B[31mINFO: Some specific configuration\u001B[0m"
                     sh '''
                         export DOCKER_BUILDKIT=1
                         echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
@@ -24,7 +24,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    echo "INFO: Testing start"
+                    echo "\u001B[31mINFO: Testing start\u001B[0m"
                     // sh '''
                     //     docker build --target test-runner -t tests/test-runner .
                     //    '''
@@ -32,7 +32,7 @@ pipeline {
             }
             stage('Build') {
                 steps {
-                    echo "INFO: Building start"
+                    echo "\u001B[31mINFO: Building start\u001B[0m"
                     sh '''
                         docker build -t yurasdockers/dashboard:0.1-clck .
                         docker push yurasdockers/dashboard:0.1-clck
@@ -43,7 +43,7 @@ pipeline {
         post {
         // Clean after build
         always {
-            sh 'docker logout'
+            sh '\u001B[31mdocker logout\u001B[0m'
             cleanWs(cleanWhenNotBuilt: true,
                     deleteDirs: true,
                     disableDeferredWipeout: true,
