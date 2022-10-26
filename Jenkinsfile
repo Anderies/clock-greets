@@ -1,6 +1,3 @@
-def dockerRegistry = "yurasdockers";
-def dashboardName = "dashboard";
-def dashboardTag = "0.1-clck"
 
 pipeline {
     agent { label 'pi' }
@@ -15,6 +12,9 @@ pipeline {
     }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerCred')
+        def dockerRegistry = "yurasdockers";
+        def dashboardName = "dashboard";
+        def dashboardTag = "0.1-clck"
     }
         stages {
             stage('Config pipeline') {
