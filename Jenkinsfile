@@ -4,7 +4,8 @@ pipeline {
         label "pi"
     }
     options {
-        ansiColor('xterm')
+        ansiColor('xterm'),
+        timestamps ()
         // skipDefaultCheckout true
     }
         stages {
