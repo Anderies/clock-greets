@@ -9,23 +9,28 @@ pipeline {
         // skipDefaultCheckout true
     }
         stages {
+            stage('Config pipeline') {
+                steps {
+                    echo "INFO: Some specific configuration"
+                    sh '''
+                        export DOCKER_BUILDKIT=1
+                       '''
+                }
+            }
             stage('Test') {
                 steps {
-                    sh 'ng test'
+                    echo "INFO: Testing start"
+                    sh '''
+                        docker build --target test-runner -t tests/test-runner .
+                       '''
                 }
             }
             stage('Build') {
                 steps {
                     echo "INFO: Building start"
                     sh '''
-                        export DOCKER_BUILDKIT=1
                         docker build -t yurasdockers/clock:0.1 .
                     '''
-                }
-            }
-            stage('Deploy') {
-                steps {
-                    echo 'Deploying....'
                 }
             }
         }
