@@ -12,7 +12,7 @@ pipeline {
                 steps {
                     echo "INFO: Building start"
                     sh '''
-                        ls -alt
+                        docker build -t yurasdockers/clock:0.1
                     '''
                 }
             }
