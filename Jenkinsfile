@@ -3,6 +3,9 @@ def dashboardName = "dashboard:0.1-clck"
 
 pipeline {
     agent { label 'pi' }
+    // triggers {
+    //     cron('H 4/* 0 0 1-5')
+    // }
     options {
         ansiColor('xterm')
         timestamps ()
@@ -43,7 +46,7 @@ pipeline {
         post {
         // Clean after build
         always {
-            sh '\u001B[31mdocker logout\u001B[0m'
+            sh 'docker logout'
             cleanWs(cleanWhenNotBuilt: true,
                     deleteDirs: true,
                     disableDeferredWipeout: true,
