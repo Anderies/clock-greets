@@ -1,7 +1,7 @@
 
 pipeline {
     agent {
-    label "default"
+    label "pi"
     }
     options {
         ansiColor('xterm')
@@ -9,9 +9,6 @@ pipeline {
     }
         stages {
             stage('Setup tools') {
-                // agent {
-                // label "default"
-                // }
                 steps {
                     echo '\033[34m- - - [_] [_] [_] Config Pipeline [_] [_] [_] - - -\033[0m'
                     sh '''
@@ -28,9 +25,6 @@ pipeline {
                 }
             }
             stage('Build') {
-                // agent {
-                // label "python"
-                // }
                 steps {
                     echo '\033[34m- - - [_] [_] [_] Build App [_] [_] [_] - - -\033[0m'
                     sh '''
