@@ -1,11 +1,10 @@
 
 pipeline {
-    agent {
-        label "pi"
-    }
+    agent { label 'pi' }
     options {
         ansiColor('xterm')
         timestamps ()
+        buildDiscarder(logRotator(numToKeepStr: '10'))
         // skipDefaultCheckout true
     }
         stages {
