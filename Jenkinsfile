@@ -13,6 +13,7 @@ pipeline {
                 steps {
                     echo "INFO: Building start"
                     sh '''
+                        export DOCKER_BUILDKIT=1
                         docker build -t yurasdockers/clock:0.1 .
                     '''
                 }
