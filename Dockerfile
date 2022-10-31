@@ -10,6 +10,7 @@ RUN npm run build
 FROM nginx:1.17.1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/clock-greets /usr/share/nginx/html
+EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
 # FROM build AS test-runner
 # RUN ng test
