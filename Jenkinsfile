@@ -14,7 +14,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerCred')
         def dockerRegistry = "yurasdockers";
         def dashboardName = "dashboard";
-        def dashboardTag = "0.1-clck"
+        def dashboardTag = "0.2-clck"
     }
         stages {
             stage('Config pipeline') {
